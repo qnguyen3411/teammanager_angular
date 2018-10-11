@@ -1,0 +1,37 @@
+<table class="table table-bordered col-11 mx-auto">
+  <thead>
+    <tr>
+      <th>Team name</th>
+      <th>Preferred Position</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players">
+      <th>{{player['name']}}</th>
+      <td>{{player['position']}}</td>
+      <td><button (click)="setPlayerToDelete(player)" class="btn btn-danger">DELETE</button></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div *ngIf="playerToDelete" class="modal d-block">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal">;</button> -->
+        <h4 class="modal-title">U sure???</h4>
+      </div>
+      <div class="modal-body">
+        u wanna delete {{playerToDelete['name']}}??
+      </div>
+      <div class="modal-footer">
+        <button (click)="deletePlayer(playerToDelete)" class="btn btn-danger">YE</button>
+        <button (click)="cancelDelete()" class="btn btn-success">NO</button>
+            
+      </div>
+    </div>
+  </div> 
+</div>

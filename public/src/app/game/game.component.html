@@ -1,0 +1,19 @@
+<table class="table table-bordered col-11 mx-auto">
+    <thead>
+      <tr>
+        <th>Team name</th>
+        <th>Preferred Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <th>{{player['name']}}</th>
+        <td>
+          <button (click)="onUpdate('playing', player)" class="btn btn-{{setToPlayerStatus('playing', player[key])}}">Playing</button>
+          <button (click)="onUpdate('notPlaying', player)" class="btn btn-{{setToPlayerStatus('notPlaying', player[key])}}">Not Playing</button>
+          <button (click)="onUpdate('undecided', player)" class="btn btn-{{setToPlayerStatus('undecided', player[key])}}">Undecided</button>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
